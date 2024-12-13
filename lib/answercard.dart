@@ -106,7 +106,7 @@ class AnswerCard extends StatelessWidget {
 
 Widget buildCorrectIcon() => const CircleAvatar(
       radius: 15,
-      backgroundColor: Colors.green,
+      backgroundColor: Color.fromARGB(255, 138, 248, 142),
       child: Icon(
         Icons.check,
         color: Colors.white,
@@ -115,7 +115,7 @@ Widget buildCorrectIcon() => const CircleAvatar(
 
 Widget buildWrongIcon() => const CircleAvatar(
       radius: 15,
-      backgroundColor: Colors.red,
+      backgroundColor: Color.fromARGB(255, 252, 114, 104),
       child: Icon(
         Icons.close,
         color: Colors.white,
