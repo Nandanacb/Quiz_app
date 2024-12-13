@@ -18,15 +18,17 @@ class MyTextButton extends StatelessWidget {
         height: 50,
         width: double.infinity,
         child: Card(
-          color: onPressed != null ? Colors.white24 : null,
+          color: onPressed != null
+              ? const Color.fromARGB(255, 241, 216, 216)
+              : null,
           child: Center(
             child: Text(
               label,
               style: const TextStyle(
-                letterSpacing: 2,
-                fontSize: 25,
-                fontWeight: FontWeight.w400,
-              ),
+                  letterSpacing: 2,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 126, 22, 145)),
             ),
           ),
         ),

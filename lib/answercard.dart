@@ -45,10 +45,10 @@ class AnswerCard extends StatelessWidget {
       child: selectedAnswerIndex != null
           // if one option is chosen
           ? Container(
-              height: 70,
+              height: 75,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.white10,
+                color: const Color.fromARGB(255, 246, 241, 247),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: isCorrectAnswer
@@ -82,10 +82,10 @@ class AnswerCard extends StatelessWidget {
               height: 75,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.white10,
+                color: const Color.fromARGB(255, 241, 231, 243),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: Colors.white24,
+                  color: Colors.white,
                 ),
               ),
               child: Row(
@@ -93,9 +93,8 @@ class AnswerCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       question,
-                      style: const TextStyle(
-                        fontSize: 16,
-                      ),
+                      style:
+                          const TextStyle(fontSize: 16, color: Colors.purple),
                     ),
                   ),
                 ],

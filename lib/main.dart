@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.dark,
-      theme: ThemeData.dark().copyWith(),
+      //themeMode: ThemeMode.dark,
+      //theme: ThemeData.dark().copyWith(),
       home: QuizScreen(),
     );
   }

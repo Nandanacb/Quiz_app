@@ -11,45 +11,71 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          const SizedBox(width: 1000),
-          const Text(
-            'Your Score: ',
-            style: TextStyle(
-              fontSize: 34,
+      backgroundColor: Colors.purple,
+      body: SizedBox(
+        height: 700,
+        width: 700,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(
+              width: 700,
             ),
-          ),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              SizedBox(
-                height: 250,
-                width: 250,
-                child: CircularProgressIndicator(
-                  strokeWidth: 10,
-                  value: score / 9,
-                  color: Colors.green,
-                  backgroundColor: Colors.white,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: const Text(
+                'Your Score: ',
+                style: TextStyle(
+                  fontSize: 34,
                 ),
               ),
-              Column(
-                children: [
-                  Text(
-                    score.toString(),
-                    style: const TextStyle(fontSize: 80),
+            ),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: 250,
+                  width: 250,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 10,
+                    value: score / 9,
+                    color: const Color.fromARGB(255, 89, 45, 165),
+                    backgroundColor: Colors.white,
                   ),
-                  const SizedBox(height: 10),
-                  Text(
-                    '${(score / 10 * 100).round()}%',
-                    style: const TextStyle(fontSize: 25),
-                  )
-                ],
-              ),
-            ],
-          ),
-        ],
+                ),
+                Column(
+                  children: [
+                    Text(
+                      score.toString(),
+                      style: const TextStyle(fontSize: 80),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      '${(score / 10 * 100).round()}%',
+                      style: const TextStyle(fontSize: 25),
+                    )
+                  ],
+                ),
+              ],
+            ),
+            SizedBox(height: 60),
+            Text(
+              "Would you like to restart the program?",
+              style: TextStyle(fontSize: 18),
+            ),
+            SizedBox(height: 30),
+            ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  "Restart",
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ))
+          ],
+        ),
       ),
     );
   }

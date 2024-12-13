@@ -145,8 +145,17 @@ class _QuizScreenState extends State<QuizScreen> {
     final question = questions[questionIndex];
     bool isLastQuestion = questionIndex == questions.length - 1;
     return Scaffold(
+      backgroundColor: const Color.fromARGB(252, 123, 32, 139),
       appBar: AppBar(
-        title: const Text('Quiz App'),
+        backgroundColor: const Color.fromARGB(252, 123, 32, 139),
+        title: Padding(
+          padding: const EdgeInsets.all(10),
+          child: const Text(
+            'Quiz App',
+            style: TextStyle(
+                fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
+          ),
+        ),
         centerTitle: true,
       ),
       body: Padding(
@@ -156,9 +165,7 @@ class _QuizScreenState extends State<QuizScreen> {
           children: [
             Text(
               question.question,
-              style: const TextStyle(
-                fontSize: 21,
-              ),
+              style: const TextStyle(fontSize: 21, color: Colors.white),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
