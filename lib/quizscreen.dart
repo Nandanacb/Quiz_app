@@ -17,11 +17,11 @@ class _QuizScreenState extends State<QuizScreen> {
   int score = 0;
 
   final List<Question> questions = [
-    Question(correctAnswerIndex: 1, question: 'Q1. What is Flutter?', options: [
-      'A)  Flutter is an open-source backend development framework ',
-      'B)  Flutter is an open-source UI toolkit',
-      'C)  Flutter is an open-source programming language for cross-platform applications',
-      'D)  Flutters is a DBMS toolkit',
+    Question(correctAnswerIndex: 0, question: 'Q1.What is the key configuration file used when building a Flutter project?', options: [
+      'A)  pubspec.yaml ',
+      'B)  pubspec.xml',
+      'C)  config.html',
+      'D)  root.xml',
     ]),
     Question(
         correctAnswerIndex: 2,
@@ -44,13 +44,13 @@ class _QuizScreenState extends State<QuizScreen> {
           'D)  Go',
         ]),
     Question(
-        correctAnswerIndex: 0,
-        question: 'Q4. How many types of widgets are there in Flutter?',
+        correctAnswerIndex: 1,
+        question: 'Q4. Which component allows us to specify the distance between widgets on the screen?',
         options: [
-          'A)  2',
-          'B)  4',
-          'C)  6',
-          'D)  8+',
+          'A)  SafeArea',
+          'B)  SizedBox',
+          'C)  table',
+          'D)  AppBar',
         ]),
     Question(
         correctAnswerIndex: 0,
@@ -65,12 +65,12 @@ class _QuizScreenState extends State<QuizScreen> {
     Question(
         correctAnswerIndex: 0,
         question:
-            'Q6. A sequence of asynchronous Flutter events is known as a:',
+          'Q6. Which release mode will not contain any debugging data when run?',
         options: [
-          'A)  Flow',
-          'B)  current',
-          'C)  Stream',
-          'D)  Series',
+          'A)  Profile',
+          'B)  Debug',
+          'C)  Release',
+          'D)  Test',
         ]),
     Question(
         correctAnswerIndex: 1,
@@ -148,72 +148,89 @@ class _QuizScreenState extends State<QuizScreen> {
       backgroundColor: const Color.fromARGB(252, 123, 32, 139),
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(252, 123, 32, 139),
+        automaticallyImplyLeading: false,
         title: Padding(
           padding: const EdgeInsets.all(10),
           child: const Text(
             'Quiz App',
             style: TextStyle(
                 fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
+                
+                
           ),
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
+      body: Column(
+       
+        children: [
+      
+          
+          Padding(
+            padding: const EdgeInsets.all(25),
+            child: Text(
               question.question,
-              style: const TextStyle(fontSize: 21, color: Colors.white),
+              style: const TextStyle(fontSize: 20, color: Colors.white),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 30),
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: question.options.length,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: selectedAnswerIndex == null
-                        ? () => pickAnswer(index)
-                        : null,
-                    child: AnswerCard(
-                      currentIndex: index,
-                      question: question.options[index],
-                      isSelected: selectedAnswerIndex == index,
-                      selectedAnswerIndex: selectedAnswerIndex,
-                      correctAnswerIndex: question.correctAnswerIndex,
-                      isAnswerCorrect: selectedAnswerIndex != null &&
-                          selectedAnswerIndex == question.correctAnswerIndex,
-                      isAnswerIncorrect: selectedAnswerIndex != null &&
-                          selectedAnswerIndex != question.correctAnswerIndex,
-                    ),
-                  );
-                },
-              ),
-            ),
-            // Next Button
-            isLastQuestion
-                ? MyTextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (_) => ResultScreen(
-                            score: score,
-                          ),
+          ),
+          SizedBox(height: 45),
+          Container(
+            height: 500,
+            decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15),bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)),color: Colors.white),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(25),
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: question.options.length,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: selectedAnswerIndex == null
+                            ? () => pickAnswer(index)
+                            : null,
+                        child: AnswerCard(
+                          currentIndex: index,
+                          question: question.options[index],
+                          isSelected: selectedAnswerIndex == index,
+                          selectedAnswerIndex: selectedAnswerIndex,
+                          correctAnswerIndex: question.correctAnswerIndex,
+                          isAnswerCorrect: selectedAnswerIndex != null &&
+                              selectedAnswerIndex == question.correctAnswerIndex,
+                          isAnswerIncorrect: selectedAnswerIndex != null &&
+                              selectedAnswerIndex != question.correctAnswerIndex,
                         ),
                       );
                     },
-                    label: 'Finish',
-                  )
-                : MyTextButton(
-                    onPressed:
-                        selectedAnswerIndex != null ? goToNextQuestion : null,
-                    label: 'Next',
                   ),
-          ],
-        ),
+                ),
+                
+            
+                isLastQuestion
+            ? MyTextButton(
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (_) => ResultScreen(
+                        score: score,
+                      ),
+                    ),
+                  );
+                },
+                label: 'Finish',
+              )
+            : MyTextButton(
+                onPressed:
+                    selectedAnswerIndex != null ? goToNextQuestion : null,
+                label: 'Next',
+              ),
+              ],
+            ),
+          ),
+          // Next Button
+          
+        ],
       ),
     );
   }

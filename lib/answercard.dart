@@ -48,7 +48,7 @@ class AnswerCard extends StatelessWidget {
               height: 75,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 246, 241, 247),
+                color: const Color.fromARGB(255, 232, 187, 241),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: isCorrectAnswer
@@ -82,7 +82,7 @@ class AnswerCard extends StatelessWidget {
               height: 75,
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 241, 231, 243),
+                color: const Color.fromARGB(255, 232, 187, 241),
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: Colors.white,

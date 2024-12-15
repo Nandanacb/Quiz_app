@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizapp_quizzapp/quizscreen.dart';
 
 class ResultScreen extends StatelessWidget {
   const ResultScreen({
@@ -27,7 +28,7 @@ class ResultScreen extends StatelessWidget {
               child: const Text(
                 'Your Score: ',
                 style: TextStyle(
-                  fontSize: 34,
+                  fontSize: 34,color: Colors.white,
                 ),
               ),
             ),
@@ -40,7 +41,7 @@ class ResultScreen extends StatelessWidget {
                   child: CircularProgressIndicator(
                     strokeWidth: 10,
                     value: score / 9,
-                    color: const Color.fromARGB(255, 89, 45, 165),
+                    color: const Color.fromARGB(255, 230, 134, 214),
                     backgroundColor: Colors.white,
                   ),
                 ),
@@ -48,12 +49,12 @@ class ResultScreen extends StatelessWidget {
                   children: [
                     Text(
                       score.toString(),
-                      style: const TextStyle(fontSize: 80),
+                      style: const TextStyle(fontSize: 80,color: Colors.white),
                     ),
                     const SizedBox(height: 10),
                     Text(
                       '${(score / 10 * 100).round()}%',
-                      style: const TextStyle(fontSize: 25),
+                      style: const TextStyle(fontSize: 25,color: Colors.white),
                     )
                   ],
                 ),
@@ -62,16 +63,16 @@ class ResultScreen extends StatelessWidget {
             SizedBox(height: 60),
             Text(
               "Would you like to restart the program?",
-              style: TextStyle(fontSize: 18),
+              style: TextStyle(fontSize: 18,color: Colors.white),
             ),
             SizedBox(height: 30),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context)=>QuizScreen()));},
                 child: Text(
                   "Restart",
                   style: TextStyle(
                       fontSize: 20,
-                      color: Colors.white,
+                      color: Colors.purple,
                       fontWeight: FontWeight.bold),
                 ))
           ],
