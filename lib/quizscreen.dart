@@ -174,10 +174,10 @@ class _QuizScreenState extends State<QuizScreen> {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 45),
+          SizedBox(height: 47),
           Container(
             height: 500,
-            decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15),bottomLeft: Radius.circular(15),bottomRight: Radius.circular(15)),color: Colors.white),
+            decoration: BoxDecoration(borderRadius: BorderRadius.only(topLeft: Radius.circular(15),topRight: Radius.circular(15)),color: Colors.white),
             child: Column(
               children: [
                 Padding(
@@ -208,6 +208,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 
             
                 isLastQuestion
+                
             ? MyTextButton(
                 onPressed: () {
                   Navigator.of(context).pushReplacement(
@@ -218,6 +219,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     ),
                   );
                 },
+                
                 label: 'Finish',
               )
             : MyTextButton(

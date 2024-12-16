@@ -4,6 +4,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quizapp_quizzapp/firstpage.dart';
 import 'package:quizapp_quizzapp/quizscreen.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class Splashscreen extends StatefulWidget {
 class _SplashscreenState extends State<Splashscreen>{
   void initState(){
     Timer(const Duration(seconds: 5),(){
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>  QuizScreen(),));
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>  Firstpage(),));
     });
     super.initState();
   }
@@ -25,7 +26,7 @@ class _SplashscreenState extends State<Splashscreen>{
       
       body: Container(
         
-        decoration: BoxDecoration(image: DecorationImage(image: AssetImage("assets/images/gppimage.jpg"),fit: BoxFit.cover)),
+        
         child: Center(
           child: Lottie.asset("assets/images/ann.json",
           width: 250,
